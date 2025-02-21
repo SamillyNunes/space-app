@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import searchImg from "../../assets/search.png";
+import searchImg from "../../assets/images/search.png";
 
 const InputStyledContainer = styled.div`
   display: inline-block;
