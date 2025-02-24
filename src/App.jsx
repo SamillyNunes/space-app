@@ -3,6 +3,7 @@ import GlobalStyles from "./components/GlobalStyles";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import Banner from "./components/Banner";
+import Gallery from "./components/Gallery";
 
 const GradientBackground = styled.div`
   background: linear-gradient(
@@ -26,6 +27,12 @@ const MainContainer = styled.main`
   gap: 24px;
 `;
 
+const ContentContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`;
+
 function App() {
   return (
     <GradientBackground>
@@ -35,10 +42,14 @@ function App() {
         <MainContainer>
           <SideBar />
 
-          <Banner
-            title="A galeria mais completa de fotos do espaço!"
-            backgroundImg={"/images/earth.png"}
-          />
+          <ContentContainer>
+            <Banner
+              title="A galeria mais completa de fotos do espaço!"
+              backgroundImg={"/images/earth.png"}
+            />
+
+            <Gallery />
+          </ContentContainer>
         </MainContainer>
       </AppContainer>
     </GradientBackground>
