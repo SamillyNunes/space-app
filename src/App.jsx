@@ -15,19 +15,32 @@ const GradientBackground = styled.div`
   min-height: 100vh;
 `;
 
+const AppContainer = styled.div`
+  width: 1440px;
+  max-width: 100%;
+  margin: 0 auto;
+`;
+
+const MainContainer = styled.main`
+  display: flex;
+  gap: 24px;
+`;
+
 function App() {
   return (
     <GradientBackground>
       <GlobalStyles />
-      <Header />
-      <main style={{ display: "flex" }}>
-        <SideBar />
+      <AppContainer>
+        <Header />
+        <MainContainer>
+          <SideBar />
 
-        <Banner
-          title="A galeria mais completa de fotos do espaço!"
-          backgroundImg={'/images/earth.png'}
-        />
-      </main>
+          <Banner
+            title="A galeria mais completa de fotos do espaço!"
+            backgroundImg={"/images/earth.png"}
+          />
+        </MainContainer>
+      </AppContainer>
     </GradientBackground>
   );
 }

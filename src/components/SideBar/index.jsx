@@ -6,7 +6,6 @@ const ListStyled = styled.ul`
   padding: 0;
   margin: 0;
   width: 212px;
-  margin-left: 2.5rem;
 `;
 
 const SideBar = () => {
