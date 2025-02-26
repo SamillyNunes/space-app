@@ -1,23 +1,24 @@
 import styled from "styled-components";
+import IconButton from "../../IconButton";
 
 const ImageFigureStyled = styled.figure`
-  width: ${(props) => (props.$expanded ? "90%" : "448px")};
+  width: ${(props) => (props.$expanded ? "100%" : "448px")};
   max-width: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
-  height: 336px;
+  height: ${(props) => (props.$expanded ? "100%" : "336px")};
 
   & > img {
     max-width: 100%;
-    height: 70%;
+    height: ${(props) => (props.$expanded ? "100%" : "70%")};;
     object-fit: cover;
-    border-radius: 20px 20px 0 0;
+    border-radius: 10px 10px 0 0;
   }
 
   figcaption {
     background-color: #001634;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 10px 10px;
     color: #fff;
     box-sizing: border-box;
     padding: 15px 20px;
@@ -46,12 +47,6 @@ const ImageFigureStyled = styled.figure`
         display: flex;
         gap: 10px;
         align-items: center;
-
-        button {
-          background-color: transparent;
-          border: none;
-          cursor: pointer;
-        }
       }
     }
   }
@@ -66,13 +61,14 @@ const Image = ({ photo, expanded = false, onExpanded }) => {
         <footer>
           <p> {photo.fonte} </p>
           <div>
-            <button>
-              <img src="/icons/favorito-ativo.png" alt="Botão de favorito" />
-            </button>
+            <IconButton
+              iconPath="/icons/favorito-ativo.png"
+            />
             {!expanded && (
-              <button onClick={() => onExpanded(photo)}>
-                <img src="/icons/expandir.png" alt="Botão de expandir" />
-              </button>
+              <IconButton
+                onClick={() => onExpanded(photo)}
+                iconPath="/icons/expandir.png"
+              />
             )}
           </div>
         </footer>
