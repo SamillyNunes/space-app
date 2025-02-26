@@ -66,6 +66,7 @@ const Image = ({ photo, expanded = false, onExpanded }) => {
             />
             {!expanded && (
               <IconButton
+                aria-hidden={expanded}
                 onClick={() => onExpanded(photo)}
                 iconPath="/icons/expandir.png"
               />
