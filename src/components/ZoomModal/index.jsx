@@ -32,7 +32,7 @@ const Dialog = styled.dialog`
   }
 `;
 
-const ZoomModal = ({ photo, onCloseModal }) => {
+const ZoomModal = ({ photo, onCloseModal, setPhotoAsFavorite }) => {
   return (
     <>
       {photo && (
@@ -40,7 +40,7 @@ const ZoomModal = ({ photo, onCloseModal }) => {
         <>
           <Overlay>
             <Dialog open={!!photo}>
-              <Image photo={photo} expanded={true} />
+              <Image photo={photo} expanded={true} onFavorite={setPhotoAsFavorite} />
 
               <IconButton
                 iconPath='/icons/fechar.png'

@@ -42,13 +42,22 @@ const App = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const onChangeFavoritePhoto = (photo) => {
-    setGalleryPhotos(galleryPhotos.map( p => {
-      return {
-        ...p,
-        favorite: p.id === photo.id ? !photo.favorite : p.favorite,
-      }
-    }));
-  }
+    if (photo.id === selectedPhoto?.id) {
+      setSelectedPhoto({
+        ...selectedPhoto,
+        favorite: !selectedPhoto.favorite,
+      });
+    }
+
+    setGalleryPhotos(
+      galleryPhotos.map((p) => {
+        return {
+          ...p,
+          favorite: p.id === photo.id ? !photo.favorite : p.favorite,
+        };
+      })
+    );
+  };
 
   return (
     <GradientBackground>
@@ -72,7 +81,11 @@ const App = () => {
           </ContentContainer>
         </MainContainer>
       </AppContainer>
-      <ZoomModal photo={selectedPhoto} onCloseModal={()=> setSelectedPhoto(null)} />
+      <ZoomModal
+        photo={selectedPhoto}
+        onCloseModal={() => setSelectedPhoto(null)}
+        setPhotoAsFavorite={onChangeFavoritePhoto}
+      />
     </GradientBackground>
   );
 };
