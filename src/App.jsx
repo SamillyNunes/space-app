@@ -66,25 +66,16 @@ const App = () => {
     setSelectedTag(tagId);
   };
 
-  useEffect(() => {
-    if (selectedTag === 0) {
-      setGalleryPhotos(photos);
-    } else {
-      setGalleryPhotos(photos.filter((p) => p.tagId === selectedTag));
-    }
-  }, [selectedTag]);
+  useEffect(()=>{
+    const filteredImgs = photos.filter(p => {
+      const tagFilter = !selectedTag || selectedTag===p.tagId;
+      const textFilter = !filter || p.titulo.toLowerCase().includes(filter.toLowerCase());
+      return tagFilter && textFilter;
+    });
 
-  useEffect(() => {
-    if (filter === "") {
-      setGalleryPhotos(photos);
-    } else {
-      setGalleryPhotos(
-        photos.filter((p) =>
-          p.titulo.toLowerCase().includes(filter.toLowerCase())
-        )
-      );
-    }
-  }, [filter]);
+    setGalleryPhotos(filteredImgs);
+
+  }, [filter, selectedTag]);
 
   return (
     <GradientBackground>
