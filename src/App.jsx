@@ -60,6 +60,16 @@ const App = () => {
     );
   };
 
+  const onChangeSelectedTag = (tagId) => {
+    setSelectedTag(tagId);
+
+    if (tagId === 0) {
+      setGalleryPhotos(photos);
+    } else {
+      setGalleryPhotos(photos.filter((p) => p.tagId === tagId));
+    }
+  };
+
   return (
     <GradientBackground>
       <GlobalStyles />
@@ -79,7 +89,7 @@ const App = () => {
               onPhotoSelected={(photo) => setSelectedPhoto(photo)}
               onSetFavorite={onChangeFavoritePhoto}
               selectedTag={selectedTag}
-              onSelectTag={setSelectedTag}
+              onSelectTag={onChangeSelectedTag}
             />
           </ContentContainer>
         </MainContainer>
