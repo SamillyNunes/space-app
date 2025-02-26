@@ -17,7 +17,7 @@ const Dialog = styled.dialog`
   border: none;
 `;
 
-const ZoomModal = ({ photo }) => {
+const ZoomModal = ({ photo, onCloseModal }) => {
   return (
     <>
       {photo && (
@@ -27,9 +27,7 @@ const ZoomModal = ({ photo }) => {
             <Dialog open={!!photo}>
               <Image photo={photo} expanded={true} />
 
-              <form method="dialog">
-                <button>OK</button>
-              </form>
+              <button onClick={onCloseModal}>OK</button>
             </Dialog>
           </Overlay>
         </>
