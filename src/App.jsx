@@ -8,6 +8,7 @@ import Gallery from "./components/Gallery";
 import photos from "./assets/json/fotos.json";
 import { useEffect, useState } from "react";
 import ZoomModal from "./components/ZoomModal";
+import Footer from "./components/Footer";
 
 const GradientBackground = styled.div`
   background: linear-gradient(
@@ -108,6 +109,7 @@ const App = () => {
             />
           </ContentContainer>
         </MainContainer>
+        <Footer />
       </AppContainer>
       <ZoomModal
         photo={selectedPhoto}
