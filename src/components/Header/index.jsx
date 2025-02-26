@@ -11,12 +11,12 @@ const StyledHeader = styled.header`
     }
 `;
 
-const Header = () => {
+const Header = ({onInputValueChanged}) => {
     return (
         <StyledHeader>
             <img src="/images/logo.png" alt="Logo da aplicação" />
 
-            <CustomInput/>
+            <CustomInput onChange={onInputValueChanged} />
         </StyledHeader>
     );
 }

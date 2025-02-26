@@ -41,6 +41,7 @@ const App = () => {
   const [galleryPhotos, setGalleryPhotos] = useState(photos);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [selectedTag, setSelectedTag] = useState(0);
+  const [filter, setFilter] = useState("");
 
   const onChangeFavoritePhoto = (photo) => {
     if (photo.id === selectedPhoto?.id) {
@@ -64,7 +65,7 @@ const App = () => {
     setSelectedTag(tagId);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     if (selectedTag === 0) {
       setGalleryPhotos(photos);
     } else {
@@ -72,11 +73,23 @@ const App = () => {
     }
   }, [selectedTag]);
 
+  useEffect(() => {
+    if (filter === "") {
+      setGalleryPhotos(photos);
+    } else {
+      setGalleryPhotos(
+        photos.filter((p) =>
+          p.titulo.toLowerCase().includes(filter.toLowerCase())
+        )
+      );
+    }
+  }, [filter]);
+
   return (
     <GradientBackground>
       <GlobalStyles />
       <AppContainer>
-        <Header />
+        <Header onInputValueChanged={(e) => setFilter(e.target.value)} />
         <MainContainer>
           <SideBar />
 
