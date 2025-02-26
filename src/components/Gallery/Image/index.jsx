@@ -46,7 +46,7 @@ const ImageFigureStyled = styled.figure`
 const Image = ({ photo }) => {
     return (
         <ImageFigureStyled $expanded={false}>
-            <img src={photo.path} />
+            <img src={photo.path} alt={photo.titulo} />
             <figcaption>
                 <h3> {photo.titulo} </h3>
                 <footer>
