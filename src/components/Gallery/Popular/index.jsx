@@ -1,7 +1,33 @@
 import Title from "../../Title";
+import popularPhotos from "../../../assets/json/fotos-populares.json";
+import styled from "styled-components";
+
+const PhotosContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  & > img{
+    border-radius: 10px;
+    width: 12.5rem;
+    height: 9.5rem;
+    box-sizing: border-box;
+    object-fit: cover;
+  }
+`;
 
 const Popular = () => {
-    return <Title $alignment='center'>Populares</Title>
-}
+  return (
+    <PhotosContainer>
+      <Title $alignment="center">Populares</Title>
+      {/* <PhotosContainer> */}
+        {popularPhotos.map((p) => (
+          <img src={p.path} />
+        ))}
+      {/* </PhotosContainer> */}
+    </PhotosContainer>
+  );
+};
 
 export default Popular;
