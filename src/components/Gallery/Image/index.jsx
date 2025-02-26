@@ -2,7 +2,7 @@ import styled from "styled-components";
 import IconButton from "../../IconButton";
 
 const ImageFigureStyled = styled.figure`
-  width: ${(props) => (props.$expanded ? "100%" : "448px")};
+  width: ${(props) => (props.$expanded ? "100%" : "400px")};
   max-width: 100%;
   margin: 0;
   display: flex;

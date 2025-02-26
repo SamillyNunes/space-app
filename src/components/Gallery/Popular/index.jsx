@@ -8,9 +8,10 @@ const PhotosContainer = styled.div`
   align-items: center;
   gap: 1rem;
 
-  & > img{
+  & > img {
     border-radius: 10px;
     width: 12.5rem;
+    max-width: 212px;
     height: 9.5rem;
     box-sizing: border-box;
     object-fit: cover;
@@ -21,11 +22,9 @@ const Popular = () => {
   return (
     <PhotosContainer>
       <Title $alignment="center">Populares</Title>
-      {/* <PhotosContainer> */}
-        {popularPhotos.map((p) => (
-          <img src={p.path} />
-        ))}
-      {/* </PhotosContainer> */}
+      {popularPhotos.map((p) => (
+        <img src={p.path} />
+      ))}
     </PhotosContainer>
   );
 };

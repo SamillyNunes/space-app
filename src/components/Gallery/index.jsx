@@ -6,6 +6,7 @@ import Image from "./Image";
 
 const GalleryContainer = styled.div`
   display: flex;
+  gap: 2.5rem;
 `;
 
 const FluidSection = styled.section`
@@ -14,7 +15,7 @@ const FluidSection = styled.section`
   & > div {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.15rem;
+    justify-content: space-between;
     row-gap: 0;
   }
 `;
