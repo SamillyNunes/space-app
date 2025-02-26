@@ -69,9 +69,11 @@ const Image = ({ photo, expanded = false, onExpanded }) => {
             <button>
               <img src="/icons/favorito-ativo.png" alt="Botão de favorito" />
             </button>
-            <button onClick={() => onExpanded(photo)}>
-              <img src="/icons/expandir.png" alt="Botão de expandir" />
-            </button>
+            {!expanded && (
+              <button onClick={() => onExpanded(photo)}>
+                <img src="/icons/expandir.png" alt="Botão de expandir" />
+              </button>
+            )}
           </div>
         </footer>
       </figcaption>
