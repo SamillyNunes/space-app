@@ -6,7 +6,7 @@ import Banner from "./components/Banner";
 import Gallery from "./components/Gallery";
 
 import photos from "./assets/json/fotos.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ZoomModal from "./components/ZoomModal";
 
 const GradientBackground = styled.div`
@@ -62,13 +62,15 @@ const App = () => {
 
   const onChangeSelectedTag = (tagId) => {
     setSelectedTag(tagId);
+  };
 
-    if (tagId === 0) {
+  useEffect(()=>{
+    if (selectedTag === 0) {
       setGalleryPhotos(photos);
     } else {
-      setGalleryPhotos(photos.filter((p) => p.tagId === tagId));
+      setGalleryPhotos(photos.filter((p) => p.tagId === selectedTag));
     }
-  };
+  }, [selectedTag]);
 
   return (
     <GradientBackground>
