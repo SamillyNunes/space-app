@@ -17,10 +17,7 @@ const TagStyled = styled.button`
   box-sizing: border-box;
   border: 2px solid transparent;
   transition: background-color 0.3s ease;
-
-  &:hover {
-    border-color: #c98cf1;
-  }
+  border-color: ${(props)=> (props.$selected ? '#c98cf1' : 'transparent')};
 `;
 
 const TagsContainer = styled.div`
@@ -31,17 +28,23 @@ const TagsContainer = styled.div`
 `;
 
 const TagsList = styled.div`
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 `;
 
-const Tags = () => {
+const Tags = ({ onSelectTag, selectedTag }) => {
   return (
     <TagsContainer>
       <LabelStyled>Busque por tags:</LabelStyled>
       <TagsList>
         {tags.map((tag) => (
-          <TagStyled key={tag.id}>{tag.titulo} </TagStyled>
+          <TagStyled
+            key={tag.id}
+            onClick={() => onSelectTag(tag.id)}
+            $selected={selectedTag===tag.id}
+          >
+            {tag.titulo}{" "}
+          </TagStyled>
         ))}
       </TagsList>
     </TagsContainer>

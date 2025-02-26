@@ -20,10 +20,16 @@ const FluidSection = styled.section`
   }
 `;
 
-const Gallery = ({ photos = [], onPhotoSelected, onSetFavorite }) => {
+const Gallery = ({
+  photos = [],
+  onPhotoSelected,
+  onSetFavorite,
+  selectedTag,
+  onSelectTag,
+}) => {
   return (
     <>
-      <Tags />
+      <Tags selectedTag={selectedTag} onSelectTag={onSelectTag} />
 
       <GalleryContainer>
         <FluidSection>

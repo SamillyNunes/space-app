@@ -40,6 +40,7 @@ const ContentContainer = styled.section`
 const App = () => {
   const [galleryPhotos, setGalleryPhotos] = useState(photos);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [selectedTag, setSelectedTag] = useState(0);
 
   const onChangeFavoritePhoto = (photo) => {
     if (photo.id === selectedPhoto?.id) {
@@ -77,6 +78,8 @@ const App = () => {
               photos={galleryPhotos}
               onPhotoSelected={(photo) => setSelectedPhoto(photo)}
               onSetFavorite={onChangeFavoritePhoto}
+              selectedTag={selectedTag}
+              onSelectTag={setSelectedTag}
             />
           </ContentContainer>
         </MainContainer>
