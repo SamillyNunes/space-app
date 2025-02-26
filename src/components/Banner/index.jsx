@@ -7,7 +7,8 @@ const FigureStyled = styled.figure`
   display: flex;
   flex-grow: 1;
   align-items: center;
-  min-height: 328px;
+  height: 200px;
+  max-height: 328px;
   margin: 0;
   border-radius: 20px;
   max-width: 100%;
@@ -15,8 +16,8 @@ const FigureStyled = styled.figure`
 
 const TitleStyled = styled.h1`
   font-weight: 400;
-  font-size: 40px;
-  line-height: 48px;
+  font-size: 30px;
+  line-height: 40px;
   color: #fff;
   max-width: 300px;
   padding: 0 64px;

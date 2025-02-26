@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const NavigationItemStyled = styled.li`
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 20px;
+    line-height: 25px;
     margin-bottom: 30px;
     cursor: pointer;
     color: ${ props => props.$enabled ? '#7b78e5' : '#d9d9d9'};

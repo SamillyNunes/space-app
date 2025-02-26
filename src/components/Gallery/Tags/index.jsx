@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tags from "../../../assets/json/tags.json";
 
 const LabelStyled = styled.p`
-  font-size: 24px;
+  font-size: 20px;
   color: #d9d9d9;
   margin: 0;
 `;
@@ -10,7 +10,7 @@ const LabelStyled = styled.p`
 const TagStyled = styled.button`
   background-color: rgba(217, 217, 217, 0.3);
   color: #fff;
-  font-size: 24px;
+  font-size: 15px;
   border-radius: 10px;
   cursor: pointer;
   padding: 8px 10px;

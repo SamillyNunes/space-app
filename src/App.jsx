@@ -29,7 +29,8 @@ const AppContainer = styled.div`
 
 const MainContainer = styled.main`
   display: flex;
-  gap: 24px;
+  gap: 2.5rem;
+  padding: 0 2.5rem;
 `;
 
 const ContentContainer = styled.section`
