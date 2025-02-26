@@ -57,9 +57,9 @@ const ImageFigureStyled = styled.figure`
   }
 `;
 
-const Image = ({ photo }) => {
+const Image = ({ photo, expanded = false, onExpanded }) => {
   return (
-    <ImageFigureStyled $expanded={false}>
+    <ImageFigureStyled $expanded={expanded}>
       <img src={photo.path} alt={photo.titulo} />
       <figcaption>
         <h3> {photo.titulo} </h3>
@@ -69,8 +69,8 @@ const Image = ({ photo }) => {
             <button>
               <img src="/icons/favorito-ativo.png" alt="Botão de favorito" />
             </button>
-            <button>
-              <img src="/icons/expandir.png" alt="Botão de favorito" />
+            <button onClick={() => onExpanded(photo)}>
+              <img src="/icons/expandir.png" alt="Botão de expandir" />
             </button>
           </div>
         </footer>

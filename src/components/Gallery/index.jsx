@@ -19,7 +19,7 @@ const FluidSection = styled.section`
   }
 `;
 
-const Gallery = ({ photos = [] }) => {
+const Gallery = ({ photos = [], onPhotoSelected }) => {
   return (
     <>
       <Tags />
@@ -29,7 +29,7 @@ const Gallery = ({ photos = [] }) => {
           <Title>Navegue pela galeria</Title>
           <div>
             {photos.map((p) => (
-              <Image key={p.id} photo={p} />
+              <Image key={p.id} photo={p} onExpanded={onPhotoSelected} />
             ))}
           </div>
         </FluidSection>
