@@ -41,6 +41,15 @@ const App = () => {
   const [galleryPhotos, setGalleryPhotos] = useState(photos);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
+  const onChangeFavoritePhoto = (photo) => {
+    setGalleryPhotos(galleryPhotos.map( p => {
+      return {
+        ...p,
+        favorite: p.id === photo.id ? !photo.favorite : p.favorite,
+      }
+    }));
+  }
+
   return (
     <GradientBackground>
       <GlobalStyles />
@@ -58,6 +67,7 @@ const App = () => {
             <Gallery
               photos={galleryPhotos}
               onPhotoSelected={(photo) => setSelectedPhoto(photo)}
+              onSetFavorite={onChangeFavoritePhoto}
             />
           </ContentContainer>
         </MainContainer>

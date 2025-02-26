@@ -52,7 +52,9 @@ const ImageFigureStyled = styled.figure`
   }
 `;
 
-const Image = ({ photo, expanded = false, onExpanded }) => {
+const Image = ({ photo, expanded = false, onExpanded, onFavorite }) => {
+  const favoriteIcon = photo.favorite ? "/icons/favorito-ativo.png" : "/icons/favorito.png";
+
   return (
     <ImageFigureStyled $expanded={expanded}>
       <img src={photo.path} alt={photo.titulo} />
@@ -62,7 +64,8 @@ const Image = ({ photo, expanded = false, onExpanded }) => {
           <p> {photo.fonte} </p>
           <div>
             <IconButton
-              iconPath="/icons/favorito-ativo.png"
+              iconPath={favoriteIcon}
+              onClick={()=> onFavorite(photo)}
             />
             {!expanded && (
               <IconButton
