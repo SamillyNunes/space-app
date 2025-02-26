@@ -23,7 +23,7 @@ const Popular = () => {
     <PhotosContainer>
       <Title $alignment="center">Populares</Title>
       {popularPhotos.map((p) => (
-        <img src={p.path} />
+        <img key={p.id} src={p.path} />
       ))}
     </PhotosContainer>
   );
